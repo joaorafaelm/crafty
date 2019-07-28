@@ -5,7 +5,7 @@
   <hr>
 </p>
 
-#### run it
+#### <p align="center"><b>installing</b></p>
 ```bash
 $ git clone https://github.com/joaorafaelm/crafty && cd crafty
 $ npm install --dev
