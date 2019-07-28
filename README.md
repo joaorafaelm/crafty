@@ -6,10 +6,10 @@
 </p>
 
 ###### <p align="center"><b>install</b></p>
-```bash
-$ git clone https://github.com/joaorafaelm/crafty && cd crafty
-$ npm install --dev
-$ node main.js --watch
+```console
+git clone https://github.com/joaorafaelm/crafty && cd crafty
+npm install --dev
+node main.js --watch
 ```
 
 ![](demo.gif)
