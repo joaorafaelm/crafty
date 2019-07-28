@@ -1,9 +1,8 @@
 # <p align="center">crafty
   
 <p align="center">
-  a cli to interact with the crafty vaporizer through bluetooth low energy<br>
+  a cli to interact with the <a href="https://heroku.com/deploy?template=https://github.com/joaorafaelm/markov-bot">crafty vaporizer</a> through bluetooth low energy<br>
   <hr>
-
 </p>
 
 ### Running locally
