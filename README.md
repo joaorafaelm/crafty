@@ -5,7 +5,7 @@
   <hr>
 </p>
 
-#### clone it
+#### <p align="center">clone it</p>
 ```bash
 $ git clone https://github.com/joaorafaelm/crafty
 $ cd crafty
