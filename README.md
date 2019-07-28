@@ -5,18 +5,9 @@
   <hr>
 </p>
 
-#### clone it
-```bash
-$ git clone https://github.com/joaorafaelm/crafty
-$ cd crafty
-```
-
-#### install dependencies
-```bash
-$ npm install --dev
-```
-
 #### run it
 ```bash
+$ git clone https://github.com/joaorafaelm/crafty && cd crafty
+$ npm install --dev
 $ node main.js --watch
 ```
