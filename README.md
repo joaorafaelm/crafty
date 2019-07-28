@@ -1,7 +1,8 @@
 # <p align="center">crafty
   
 <p align="center">
-  a cli to interact with the crafty vaporizer through bluetooth low energy<br><br>
+  <br>
+  a cli to interact with the crafty vaporizer through bluetooth low energy<br>
 </p>
 <hr>
 
