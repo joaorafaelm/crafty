@@ -4,6 +4,12 @@
   a cli to interact with the <a href="https://www.storz-bickel.com/eu/en/crafty/"><b>crafty vaporizer</b></a> through bluetooth low energy<br>
   <hr>
 </p>
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+```
 
 #### clone it
 ```bash
