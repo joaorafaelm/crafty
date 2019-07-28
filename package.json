@@ -1,0 +1,24 @@
+{
+  "name": "crafty",
+  "version": "1.0.0",
+  "description": "A CLI to interact with the crafty vaporizer through BLE",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "draftlog": "^1.0.12",
+    "noble": "^1.9.1",
+    "noble-mac": "git+https://github.com/Timeular/noble-mac.git"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3"
+  }
+}

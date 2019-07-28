@@ -1,0 +1,47 @@
+const PERIPHERAL_UUIDS = ['0001'];
+const UUIDS = {
+  '000000224c454b434942265a524f5453': { label: 'device name', type: 'ascii' },
+  '000000324c454b434942265a524f5453': { label: 'firmware version', type: 'ascii' },
+  '000000334c454b434942265a524f5453': { label: 'hardware id', type: 'ascii' },
+  '000000524c454b434942265a524f5453': { label: 'sn device', type: 'ascii' },
+  '000000534c454b434942265a524f5453': { label: 'sn hardware', type: 'ascii' },
+  '000000724c454b434942265a524f5453': { label: 'ble firmware version', type: 'ascii' },
+  '000000424c454b434942265a524f5453': { label: 'bluetooth address', type: 'ascii' },
+  '000000434c454b434942265a524f5453': { label: 'pcb version', type: 'ascii' },
+  '000000514c454b434942265a524f5453': {
+    label: 'brightness', type: 'hex', suffix: '%', divide: false,
+  },
+  '000000414c454b434942265a524f5453': {
+    label: 'battery capacity', type: 'hex', suffix: '%', divide: false,
+  },
+  '000000114c454b434942265a524f5453': { label: 'temperature', type: 'hex', suffix: '°c' },
+  '000000214c454b434942265a524f5453': { label: 'base temperature', type: 'hex', suffix: '°c' },
+  '000000314c454b434942265a524f5453': { label: 'booster temperature', type: 'hex', suffix: '°c' },
+  '000000f34c454b434942265a524f5453': { label: 'current temperature pt1000', type: 'hex', suffix: '°c' },
+  '000001034c454b434942265a524f5453': { label: 'adjusted current temperature pt1000', type: 'hex', suffix: '°c' },
+  '000001134c454b434942265a524f5453': { label: 'accu temperature', type: 'hex', suffix: '°c' },
+  '000001234c454b434942265a524f5453': { label: 'accu temperature min', type: 'hex', suffix: '°c' },
+  '000001334c454b434942265a524f5453': { label: 'accu temperature max', type: 'hex', suffix: '°c' },
+  '000001e34c454b434942265a524f5453': { label: 'poweron time device', type: 'hex', suffix: 'h' },
+  '000000234c454b434942265a524f5453': { label: 'poweron time device 2', type: 'hex', suffix: 'h' },
+  '000000134c454b434942265a524f5453': { label: 'operating time accu', type: 'hex', suffix: 'h' },
+  '000000624c454b434942265a524f5453': { label: 'operating time accu 2', type: 'hex', suffix: 'h' },
+  '000000634c454b434942265a524f5453': { label: 'accu status register', type: 'hex' },
+  '000000734c454b434942265a524f5453': { label: 'accu status register 2', type: 'hex' },
+  '000000834c454b434942265a524f5453': { label: 'system status register 2', type: 'hex' },
+  '000000934c454b434942265a524f5453': { label: 'project status register', type: 'hex' },
+  '000001c34c454b434942265a524f5453': { label: 'project status register 2', type: 'hex' },
+  '000000a34c454b434942265a524f5453': { label: 'charger status register', type: 'hex' },
+  '000000b34c454b434942265a524f5453': { label: 'voltage accu', type: 'hex', suffix: 'mv' },
+  '000000c34c454b434942265a524f5453': { label: 'voltage mains', type: 'hex', suffix: 'mv' },
+  '000000d34c454b434942265a524f5453': { label: 'voltage heating', type: 'hex', suffix: 'mv' },
+  '000000e34c454b434942265a524f5453': { label: 'current accu', type: 'hex', suffix: 'ma' },
+  '000001834c454b434942265a524f5453': { label: 'design capacity accu', type: 'hex', suffix: 'mah' },
+  '000001434c454b434942265a524f5453': { label: 'full charge capacity accu', type: 'hex', suffix: 'mah' },
+  '000001534c454b434942265a524f5453': { label: 'remain capacity accu', type: 'hex', suffix: 'mah' },
+  '000001634c454b434942265a524f5453': { label: 'discharge cycles', type: 'hex' },
+  '000001734c454b434942265a524f5453': { label: 'charge cycles', type: 'hex' },
+};
+
+module.exports.UUIDS = UUIDS;
+module.exports.PERIPHERAL_UUIDS = PERIPHERAL_UUIDS;

@@ -1,0 +1,83 @@
+#!/usr/bin/env node
+
+const noble = require('noble-mac');
+const chalk = require('chalk');
+const uuids = require('./uuids.js');
+require('draftlog').into(console);
+
+const ARGS = process.argv;
+
+
+function parseHexData(data, properties) {
+  const string = data.toString(properties.type).trim();
+  if (!string) return undefined;
+  if (properties.type !== 'hex') return string;
+  const len = string.length;
+  let bigEndianHexString = '0x';
+  for (let i = 0; i < len / 2; i += 1) {
+    bigEndianHexString += string.substring((len - ((i + 1) * 2)), (len - (i * 2)));
+  }
+  return Number(
+    parseInt(bigEndianHexString, 16) / (properties.divide === false ? 1 : 10),
+  ).toFixed(2);
+}
+
+
+function fetchInfo(peripheral, discoverError, services, characteristics) {
+  const asyncFetch = characteristics.map(item => new Promise((resolve) => {
+    const props = uuids.UUIDS[item.uuid];
+    props.actions = item.properties;
+    props.draft = props.draft || console.draft();
+
+    const updateValue = (data) => {
+      props.value = parseHexData(data, props);
+      props.draft(
+        chalk.green.bold(props.label.padEnd(35).toUpperCase()),
+        '\t', props.value, props.suffix || '',
+      );
+    };
+
+    if (item.properties.includes('read')) {
+      item.read((readError, data) => { updateValue(data); resolve(); });
+    }
+
+    if (item.properties.includes('notify')) {
+      item.on('data', (data) => {
+        updateValue(data);
+      });
+
+      item.subscribe();
+    }
+  }));
+
+  Promise.all(asyncFetch).then(() => {
+    if (ARGS.includes('--watch')) {
+      console.log(chalk.blue('press <ctrl-c> to exit'));
+    } else {
+      peripheral.disconnect();
+      process.exit(0);
+    }
+  });
+}
+
+function connect(peripheral) {
+  peripheral.connect(() => {
+    peripheral.discoverSomeServicesAndCharacteristics(
+      [], Object.keys(uuids.UUIDS), fetchInfo.bind(null, peripheral),
+    );
+  });
+}
+
+noble.on('stateChange', (state) => {
+  if (state === 'poweredOn') {
+    noble.startScanning(uuids.PERIPHERAL_UUIDS);
+  } else {
+    noble.startScanning();
+  }
+});
+
+noble.on('discover', (peripheral) => {
+  noble.stopScanning();
+  peripheral.on('disconnect', () => { process.exit(0); });
+  connect(peripheral);
+});
