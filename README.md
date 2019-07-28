@@ -1,7 +1,7 @@
 # <p align="center">crafty
   
 <p align="center">
-  a cli to interact with the <a href="https://heroku.com/deploy?template=https://github.com/joaorafaelm/markov-bot">crafty vaporizer</a> through bluetooth low energy<br>
+  a cli to interact with the <a href="https://www.storz-bickel.com/eu/en/crafty/"><b>crafty vaporizer</b></a> through bluetooth low energy<br>
   <hr>
 </p>
 
