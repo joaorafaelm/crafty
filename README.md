@@ -2,8 +2,9 @@
   
 <p align="center">
   a cli to interact with the crafty vaporizer through bluetooth low energy<br>
+  <hr>
+
 </p>
-<hr>
 
 ### Running locally
 #### 1. Download
