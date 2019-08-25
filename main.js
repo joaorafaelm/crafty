@@ -29,8 +29,8 @@ function fetchInfo(peripheral, discoverError, services, characteristics) {
     const updateValue = (data) => {
       props.value = parseHexData(data, props);
       console.log(
-        props.label.padEnd(35).toUpperCase(),
-        '\t', props.value, props.suffix || '   ',
+        props.label,
+        '\t', props.value, props.suffix || '',
         '\t', new Date().toLocaleTimeString(),
       );
     };
