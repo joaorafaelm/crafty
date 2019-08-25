@@ -9,8 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^2.4.2",
-    "draftlog": "^1.0.12",
     "noble": "^1.9.1",
     "noble-mac": "git+https://github.com/Timeular/noble-mac.git"
   },

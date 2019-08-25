@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
 const noble = require('noble-mac');
-const chalk = require('chalk');
 const uuids = require('./uuids.js');
-require('draftlog').into(console);
 
 const ARGS = process.argv;
 
@@ -27,13 +25,13 @@ function fetchInfo(peripheral, discoverError, services, characteristics) {
   const asyncFetch = characteristics.map(item => new Promise((resolve) => {
     const props = uuids.UUIDS[item.uuid];
     props.actions = item.properties;
-    props.draft = props.draft || console.draft();
 
     const updateValue = (data) => {
       props.value = parseHexData(data, props);
-      props.draft(
-        chalk.green.bold(props.label.padEnd(35).toUpperCase()),
-        '\t', props.value, props.suffix || '',
+      console.log(
+        props.label.padEnd(35).toUpperCase(),
+        '\t', props.value, props.suffix || '   ',
+        '\t', new Date().toLocaleTimeString(),
       );
     };
 
@@ -51,9 +49,7 @@ function fetchInfo(peripheral, discoverError, services, characteristics) {
   }));
 
   Promise.all(asyncFetch).then(() => {
-    if (ARGS.includes('--watch')) {
-      console.log(chalk.blue('press <ctrl-c> to exit'));
-    } else {
+    if (!ARGS.includes('--watch')) {
       peripheral.disconnect();
       process.exit(0);
     }
